@@ -1,6 +1,6 @@
 # Local #######################################################################
-set realname = "Seth House"
-set from = "Seth House <whiteinge@gmail.com>"
+set realname = "Mircea Ulinic"
+set from = "Mircea Ulinic <ping@mirceaulinic.net>"
 
 set mbox_type = Maildir
 set folder = $HOME/Mail
@@ -32,7 +32,7 @@ set reverse_realname = no
 
 
 # Sending Mail ################################################################
-set smtp_url = "smtps://whiteinge\@gmail.com@smtp.gmail.com:587/"
+set smtp_url = "smtps://ping\@mirceaulinic.net@smtp.gmail.com:587/"
 set ssl_force_tls = yes
 set send_charset = "utf-8"
 set copy = yes
