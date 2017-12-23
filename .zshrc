@@ -158,7 +158,6 @@ bindkey "^L" tmux-clear-screen
 alias zmv='noglob zmv'
 # e.g., zmv *.JPEG *.jpg
 
-alias ls='ls -F --color'
 alias la='ls -A'
 alias ll='ls -lh'
 alias lls='ll -Sr'
