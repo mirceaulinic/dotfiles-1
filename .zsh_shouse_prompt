@@ -336,6 +336,6 @@ function precmd_prompt {
     ${func} "$@"
 
     # Set the prompts
-    PROMPT="${(F)pr_llines} "
+    PROMPT="%n@%m ${(F)pr_llines} "
     RPROMPT="${(F)pr_rlines}"
 }
