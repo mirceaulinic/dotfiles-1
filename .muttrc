@@ -1,10 +1,12 @@
 # Local #######################################################################
 set realname = "Mircea Ulinic"
-set from = "Mircea Ulinic <ping@mirceaulinic.net>"
 
 set mbox_type = Maildir
-set folder = $HOME/Mail
-set spoolfile=+/INBOX
+set folder=$HOME/Maildir
+set spoolfile=+INBOX
+
+set move = no
+set smtp_authenticators = ‘gssapi:login’
 
 
 # Reading Mail ################################################################
@@ -32,11 +34,25 @@ set reverse_realname = no
 
 
 # Sending Mail ################################################################
-set smtp_url = "smtps://ping\@mirceaulinic.net@smtp.gmail.com:587/"
 set ssl_force_tls = yes
 set send_charset = "utf-8"
 set copy = yes
 
+# Folder hooks ################################################################
+folder-hook 'net.mirceaulinic.ping' 'source $HOME/.mutt/net.mirceaulinic.ping'
+folder-hook 'com.gmail.mircea.ulinic' 'source $HOME/.mutt/com.gmail.mircea.ulinic'
+folder-hook 'com.cloudflare.mirucha' 'source $HOME/.mutt/com.cloudflare.mirucha'
+
+# Default account
+source $HOME/.mutt/com.gmail.mircea.ulinic
+
+# Macros for switching accounts
+macro index <f2> '<sync-mailbox><enter-command>source $HOME/.mutt/net.mirceaulinic.ping<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source $HOME/.mutt/com.gmail.mircea.ulinic<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source $HOME/.mutt/com.cloudflare.mirucha<enter><change-folder>!<enter>'
+
+# Fetch mail shortcut
+bind index G imap-fetch-mail
 
 # Getting Around ##############################################################
 bind editor <space> noop
