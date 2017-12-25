@@ -145,7 +145,7 @@ function +pr-mode-full() {
 #
 # ~/src/dotfiles %                        d2a3f82f U? master +1/-2
 function +pr-mode-compact() {
-    zstyle ':pr_nethack:*' pwd "%1~" # only last segment of cwd
+    zstyle ':pr_nethack:*' pwd "%d" # only last segment of cwd
     zstyle ':vcs_info:git*+set-message:*' hooks git-st git-st-compact git-untracked git-stash-compact
 
     pr_llines=( "${pr_com[pwd]} ${pr_com[jobs]} ${pr_com[prompt]}" )
@@ -227,7 +227,8 @@ function +pr-prompt() {
     local -a v_prompt
     v_prompt=(
         "%(0?.${white}.${red})"
-        "%#"
+        "
+>"
         ${reset}
     )
     pr_com[prompt]=${(j::)v_prompt}
@@ -334,7 +335,6 @@ function precmd_prompt {
     fi
     (( debug )) && printf '  + Running function: "%s"\n' "${func}"
     ${func} "$@"
-
     # Set the prompts
     PROMPT="%n@%m ${(F)pr_llines} "
     RPROMPT="${(F)pr_rlines}"
