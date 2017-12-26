@@ -173,6 +173,7 @@ alias lynx='lynx -cfg=$HOME/.lynx.cfg -lss=$HOME/.lynx.lss'
 alias ducks='du -cks * | sort -rn | head -15'
 alias tree="tree -FC --charset=ascii"
 alias psf='ps -opid,uid,cpu,time,stat,command'
+alias ps='ps -fax'
 alias df='df -h'
 alias dus='du -sh'
 alias info='info --vi-keys'
