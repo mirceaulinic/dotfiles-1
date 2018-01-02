@@ -307,6 +307,10 @@ function +vi-git-untracked() {
     fi
 }
 
+function virtualenv_info {
+    [ $VIRTUAL_ENV ] && echo '('`basename $VIRTUAL_ENV`') '
+}
+
 # execute the above prompt functions ##########################################
 
 # To be added to the precmd_* array so it is executed before each prompt
@@ -336,6 +340,6 @@ function precmd_prompt {
     (( debug )) && printf '  + Running function: "%s"\n' "${func}"
     ${func} "$@"
     # Set the prompts
-    PROMPT="%n@%m ${(F)pr_llines} "
+    PROMPT="$(virtualenv_info)%n@%m ${(F)pr_llines} "
     RPROMPT="${(F)pr_rlines}"
 }
