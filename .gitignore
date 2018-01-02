@@ -6,3 +6,4 @@
 .svn/
 CVS/
 .grepoptions
+pip-selfcheck.json
