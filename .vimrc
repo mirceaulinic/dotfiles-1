@@ -80,13 +80,14 @@ if !has('gui_running')
 endif
 
 au BufRead,BufNewFile *.maude set filetype=maude
+au BufNewFile,BufRead *.jinja,*j2 so ~/.vim/syntax/jinja.vim
 au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
 
-cmap w!! %!sudo tee > /dev/null 
+cmap w!! %!sudo tee > /dev/null
 
 set nobackup
 set nowritebackup
