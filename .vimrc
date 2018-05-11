@@ -56,7 +56,9 @@ au InsertEnter * set listchars-=trail:•
 au InsertLeave * set listchars+=trail:•
 
 " Shortcut to toggle paste/nopaste
+nnoremap <F6> :set invpaste paste?<CR>
 set pastetoggle=<F6>
+set showmode
 
 " Toggle spell check
 set spell spelllang=en_gb
