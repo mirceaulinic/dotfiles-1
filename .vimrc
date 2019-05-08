@@ -62,7 +62,7 @@ set showmode
 
 " Toggle spell check
 set spell spelllang=en_gb
-nmap <C-M><C-M> :setlocal spell spelllang=en_gb<CR>
+" nmap <C-M><C-M> :setlocal spell spelllang=en_gb<CR>
 
 " clear the search buffer when hitting return
 nnoremap <CR> :nohlsearch<CR>
@@ -91,6 +91,10 @@ au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
 set background=dark
 let g:solarized_termcolors=256
 colorscheme solarized
+hi clear SpellBad
+hi SpellBad cterm=underline
+" Set style for gVim
+hi SpellBad gui=undercurl
 
 cmap w!! %!sudo tee > /dev/null
 
@@ -142,5 +146,3 @@ else
   map <C-k> <C-w>k
   map <C-l> <C-w>l
 endif
-
-let g:tmuxline_preset = 'tmux'

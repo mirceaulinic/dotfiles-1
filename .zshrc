@@ -74,6 +74,8 @@ export MANPAGER=$PAGER
 export GIT_PAGER=$PAGER
 export BROWSER='google-chrome'
 export CVSIGNORE='*.swp *.orig *.rej .git'
+export PATH=$PATH:/usr/local/go/bin
+export GOPATH=$HOME/go
 
 # Silence Wine debugging output (why isn't this a default?)
 export WINEDEBUG=-all
@@ -173,7 +175,7 @@ alias lynx='lynx -cfg=$HOME/.lynx.cfg -lss=$HOME/.lynx.lss'
 alias ducks='du -cks * | sort -rn | head -15'
 alias tree="tree -FC --charset=ascii"
 alias psf='ps -opid,uid,cpu,time,stat,command'
-alias ps='ps -fax'
+alias ps='ps -faux'
 alias df='df -h'
 alias dus='du -sh'
 alias info='info --vi-keys'
@@ -181,6 +183,13 @@ alias clip='xclip -selection clipboard'
 alias ocaml='rlwrap ocaml'
 alias node='env NODE_NO_READLINE=1 rlwrap node'
 alias rs='rsync -avhzC --progress'
+alias rv-isc='telnet route-views.isc.routeviews.org'
+alias show-history='cat $HOME/.zsh_history'
+
+function historycat(){
+    cat $HOME/.zsh_history | grep $1
+}
+
 compdef rs=rsync
 
 # Print all files under the current path without prefixed path.
