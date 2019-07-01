@@ -185,6 +185,8 @@ alias node='env NODE_NO_READLINE=1 rlwrap node'
 alias rs='rsync -avhzC --progress'
 alias rv-isc='telnet route-views.isc.routeviews.org'
 alias show-history='cat $HOME/.zsh_history'
+alias docker-rmi-all='docker images | grep "<none>" | cut -b 107-118 | xargs docker rmi -f'                                                                                                                        
+alias docker-rm-all='docker ps -a | grep Exited | cut -b 1-12 | xargs docker rm -f'
 
 function historycat(){
     cat $HOME/.zsh_history | grep $1
