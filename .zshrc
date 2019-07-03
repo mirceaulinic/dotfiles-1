@@ -192,6 +192,10 @@ function historycat(){
     cat $HOME/.zsh_history | grep $1
 }
 
+function uri-encode(){
+    docker run --rm mirceaulinic/uri-encode $@
+}
+
 compdef rs=rsync
 
 # Print all files under the current path without prefixed path.
