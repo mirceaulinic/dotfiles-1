@@ -72,7 +72,7 @@ export LESS='-imJMWR'
 export PAGER="less $LESS"
 export MANPAGER=$PAGER
 export GIT_PAGER=$PAGER
-export BROWSER='google-chrome'
+export BROWSER='firefox'
 export CVSIGNORE='*.swp *.orig *.rej .git'
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=$HOME/go
@@ -194,6 +194,14 @@ function historycat(){
 
 function uri-encode(){
     docker run --rm mirceaulinic/uri-encode $@
+}
+
+function black-format(){
+    docker run --rm -v $PWD:$PWD -ti mirceaulinic/black black --fast --skip-string-normalization $PWD
+}
+
+function black-check(){
+    docker run --rm -v $PWD:$PWD -ti mirceaulinic/black black --fast --skip-string-normalization --check $PWD
 }
 
 compdef rs=rsync
