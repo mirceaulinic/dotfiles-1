@@ -74,7 +74,7 @@ export MANPAGER=$PAGER
 export GIT_PAGER=$PAGER
 export BROWSER='firefox'
 export CVSIGNORE='*.swp *.orig *.rej .git'
-export PATH=$PATH:/usr/local/go/bin
+export PATH=$HOME/scripts:$PATH:/usr/local/go/bin:/home/mircea/.local/bin
 export GOPATH=$HOME/go
 
 # Silence Wine debugging output (why isn't this a default?)
@@ -187,6 +187,10 @@ alias rv-isc='telnet route-views.isc.routeviews.org'
 alias show-history='cat $HOME/.zsh_history'
 alias docker-rmi-all='docker images | grep "<none>" | cut -b 107-118 | xargs docker rmi -f'                                                                                                                        
 alias docker-rm-all='docker ps -a | grep Exited | cut -b 1-12 | xargs docker rm -f'
+alias vpn-lon="sudo openvpn --config $HOME/vpn/lon.ovpn --daemon"
+alias vpn-nyc="sudo openvpn --config $HOME/vpn/nyc.ovpn --daemon"
+alias vpn-sin="sudo openvpn --config $HOME/vpn/sin.ovpn --daemon"
+alias gti="git"
 
 function historycat(){
     cat $HOME/.zsh_history | grep $1
